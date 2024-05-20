@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div className="max-w-screen-sm mx-auto">
+    <div className="max-w-screen-sm mx-auto font-poppins">
       <div className="flex flex-col justify-center items-center">
         <div className="mt-16">
           <img className="w-2/6 mx-auto" src={introImg} alt="" />
@@ -19,26 +19,26 @@ const Register = () => {
 
       <form className="  mt-5 p-2 mb-3">
         <div className=" flex flex-col justify-center items-center mb-5  ">
-          <div className="mb-2">
+          <div className="mb-3 w-2/3   ">
             <p className="text-slate-400 mx-2 text-xs mb-1">EMAIL ADDRESS</p>
             <input
-              className="py-1 px-7 rounded-2xl focus:outline-none bg-blue-50  "
+              className="py-1 px-5 w-full mx-auto  rounded-2xl focus:outline-none  bg-blue-50 "
               type="email"
               name="email"
             />
           </div>
 
-          <div className=" ">
+          <div className="w-2/3 ">
             <p className="text-slate-400 mx-2 text-xs mb-1">PASSWORD</p>
             <input
-              className="py-1 px-7 rounded-2xl focus:outline-none bg-blue-50  "
+              className="py-1 px-5 w-full rounded-2xl focus:outline-none bg-blue-50  "
               type="password"
               name="password"
             />
           </div>
         </div>
         <div className="text-center">
-          <button className=" font-semibold  bg-indigo-500 hover:bg-indigo-600 px-6 py-2 text-white rounded-2xl">
+          <button className=" font-semibold text-sm bg-indigo-500 hover:bg-indigo-600 px-6 py-2 text-white rounded-2xl">
             Sign up
           </button>
         </div>
