@@ -4,8 +4,49 @@ import X from "../../../assets/Logo/X.png";
 import introImg from "../../../assets/Logo/512px-Taskful_Logo.svg.png";
 
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { FacebookAuthProvider } from "firebase/auth";
 
 const Register = () => {
+  const { createUser, verifyUser, signInPopUp } = useContext(AuthContext);
+
+  const facebookProvider = new FacebookAuthProvider();
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    // registering user with email password
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+
+        // send verification email
+        verifyUser(result.user).then(() => {
+          alert(
+            "Verification email sent to your email address. Please verify your email address to continue."
+          );
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  // login with facebook
+  const handleFacebookLogIn = () => {
+    signInPopUp(facebookProvider)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="max-w-screen-sm mx-auto font-poppins">
       <div className="flex flex-col justify-center items-center">
@@ -17,12 +58,12 @@ const Register = () => {
         </h2>
       </div>
 
-      <form className="  mt-5 p-2 mb-3">
+      <form onSubmit={handleSignUp} className="  mt-5 p-2 mb-3">
         <div className=" flex flex-col justify-center items-center mb-5  ">
-          <div className="mb-3 w-2/3   ">
+          <div className="mb-3 w-2/3 ">
             <p className="text-slate-400 mx-2 text-xs mb-1">EMAIL ADDRESS</p>
             <input
-              className="py-1 px-5 w-full mx-auto  rounded-2xl focus:outline-none  bg-blue-50 "
+              className="py-1 px-5 w-full mx-auto  rounded-2xl focus:outline-none  bg-blue-50 dark:focus:bg-slate-700 "
               type="email"
               name="email"
             />
@@ -31,7 +72,7 @@ const Register = () => {
           <div className="w-2/3 ">
             <p className="text-slate-400 mx-2 text-xs mb-1">PASSWORD</p>
             <input
-              className="py-1 px-5 w-full rounded-2xl focus:outline-none bg-blue-50  "
+              className="py-1 px-5 w-full rounded-2xl focus:outline-none bg-blue-50 dark:focus:bg-slate-700 "
               type="password"
               name="password"
             />
@@ -49,7 +90,7 @@ const Register = () => {
         <p className="text-slate-400 text-xs text-center">or sign up with</p>
 
         <div className="flex justify-center items-center mt-2">
-          <button>
+          <button onClick={handleFacebookLogIn}>
             <img className="w-12" src={facebook} alt="" />
           </button>
 
