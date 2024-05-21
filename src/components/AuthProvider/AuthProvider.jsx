@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import { createContext } from "react";
@@ -22,10 +23,15 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  const signInUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
   const authInfo = {
     createUser,
     verifyUser,
     signInPopUp,
+    signInUser,
   };
 
   return (
@@ -35,6 +41,6 @@ const AuthProvider = ({ children }) => {
 
 export default AuthProvider;
 
-AuthProvider.proptypes = {
+AuthProvider.prototype = {
   children: PropTypes.node,
 };
