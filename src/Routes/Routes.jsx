@@ -3,6 +3,7 @@ import Root from "../components/layout/Root";
 import MyTasks from "../components/layout/MyTasks/MyTasks";
 import Register from "../components/Pages/Regsiter/Register";
 import Login from "../components/Pages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MyTasks></MyTasks>,
+        element: (
+          <PrivateRoute>
+            <MyTasks></MyTasks>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",

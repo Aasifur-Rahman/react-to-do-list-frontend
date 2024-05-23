@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className=" fixed bottom-0 left-0 w-full h-15 dark:bg-base-200 ">
       <ul className="  bg-base-200   flex justify-around items-center">
         <li className="">
-          <Link to="/register">
+          <Link to="/">
             <IoHome className="text-xl mt-1 text-gray-400 hover:text-indigo-500 " />
           </Link>
         </li>

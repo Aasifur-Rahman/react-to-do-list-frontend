@@ -4,7 +4,7 @@ import X from "../../../assets/Logo/X.png";
 import introImg from "../../../assets/Logo/512px-Taskful_Logo.svg.png";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
@@ -14,6 +14,8 @@ const Login = () => {
 
   const { signInUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -22,6 +24,9 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+
+        // navigate user to home page
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error.message);
