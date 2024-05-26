@@ -3,7 +3,7 @@ import { IoHome } from "react-icons/io5";
 import { CgAdd } from "react-icons/cg";
 import { SlCalender } from "react-icons/sl";
 
-const Navbar = () => {
+const BottomNav = () => {
   return (
     <div className=" fixed bottom-0 left-0 w-full h-15 dark:bg-base-200 ">
       <ul className="  bg-base-200   flex justify-around items-center">
@@ -29,5 +29,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
-<h1>This is Navbar</h1>;
+export default BottomNav;
