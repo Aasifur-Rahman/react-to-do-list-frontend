@@ -36,13 +36,13 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logOut = () => {
-    // setLoading(true);
-    // await signOut(auth);
-    // setUser(null);
-    // setLoading(false);
+  const logOut = async () => {
     setLoading(true);
-    return signOut(auth);
+    await signOut(auth);
+    setUser(null);
+    setLoading(false);
+    // setLoading(true);
+    // return signOut(auth);
   };
 
   useEffect(() => {
@@ -75,6 +75,6 @@ const AuthProvider = ({ children }) => {
 
 export default AuthProvider;
 
-AuthProvider.prototype = {
-  children: PropTypes.node,
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
