@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../components/layout/Root";
 import MyTasks from "../components/layout/MyTasks/MyTasks";
-import Register from "../components/Pages/Regsiter/Register";
+import Register from "../components/Pages/Register/Register";
 import Login from "../components/Pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     children: [
       {
-        path: "/",
+        path: "/mytasks",
         element: (
           <PrivateRoute>
             <MyTasks></MyTasks>

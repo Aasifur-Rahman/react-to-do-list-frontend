@@ -4,9 +4,10 @@ import {
   sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import auth from "../../Firebase/firebase.config";
+import auth from "../Firebase/firebase.config";
 import PropTypes from "prop-types";
 
 export const AuthContext = createContext(null);
@@ -35,8 +36,17 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const logOut = () => {
+    // setLoading(true);
+    // await signOut(auth);
+    // setUser(null);
+    // setLoading(false);
+    setLoading(true);
+    return signOut(auth);
+  };
+
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         console.log(currentUser);
         setUser(currentUser);
@@ -44,7 +54,7 @@ const AuthProvider = ({ children }) => {
       }
     });
     return () => {
-      unsubscribe();
+      unSubscribe();
     };
   }, []);
 
@@ -55,6 +65,7 @@ const AuthProvider = ({ children }) => {
     verifyUser,
     signInPopUp,
     signInUser,
+    logOut,
   };
 
   return (

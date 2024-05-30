@@ -6,7 +6,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState(true);
@@ -26,7 +26,7 @@ const Login = () => {
         console.log(result.user);
 
         // navigate user to home page
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/mytasks");
       })
       .catch((error) => {
         console.log(error.message);

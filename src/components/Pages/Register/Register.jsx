@@ -5,7 +5,7 @@ import introImg from "../../../assets/Logo/512px-Taskful_Logo.svg.png";
 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { FacebookAuthProvider } from "firebase/auth";
 
 const Register = () => {
