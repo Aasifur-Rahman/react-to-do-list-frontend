@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../components/layout/Root";
-import MyTasks from "../components/layout/MyTasks/MyTasks";
+import MyTasks from "../components/Pages/MyTasks/MyTasks";
 import Register from "../components/Pages/Register/Register";
 import Login from "../components/Pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
@@ -10,6 +10,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root></Root>,
     children: [
+      {
+        path: "/",
+        element: <Register></Register>,
+      },
       {
         path: "/mytasks",
         element: (

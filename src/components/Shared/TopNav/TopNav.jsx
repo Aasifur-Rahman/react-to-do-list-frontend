@@ -11,21 +11,17 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const TopNav = () => {
   const { logOut } = useContext(AuthContext);
 
-  // const navigate = useNavigate();
-
   const handleLogOut = () => {
     logOut()
-      .then(() => {
-        // navigate("/login");
-      })
+      .then(() => {})
       .catch((error) => {
         console.log(error.message);
       });
   };
 
   return (
-    <div className="bg-indigo-400 w-full   pt-6  pb-3 ">
-      <div className="container mx-auto">
+    <div className="bg-indigo-400 w-full mx-auto  p-2 lg:p-7  pt-6  pb-2  lg:rounded-b-3xl ">
+      <div>
         <div className="flex items-center justify-between  ">
           {/* Dashboard */}
           <div>
@@ -39,10 +35,13 @@ const TopNav = () => {
             <div>
               <IoIosSearch className="search-icon" />
             </div>
-            <input
-              type="text"
-              className="rounded-xl w-full lg:py-1 search-input"
-            />
+            <div className="w-full mx-auto">
+              <input
+                type="text"
+                className="rounded-xl w-full lg:py-1 p-1 px-8 search-input text-md dark:bg-white dark:text-black"
+                placeholder="Search Tasks"
+              />
+            </div>
           </div>
 
           {/* Label and Priority option */}
@@ -57,13 +56,12 @@ const TopNav = () => {
             </button>
           </div>
         </div>
+      </div>
+      {/* Date and Title */}
 
-        {/* Date and Title */}
-
-        <div className="text-white mt-2">
-          <p>Today, {moment().format("MMM D")}</p>
-          <h4 className="text-xl">My tasks</h4>
-        </div>
+      <div className="text-white mt-2 flex flex-col justify-start ">
+        <p>Today, {moment().format("MMM D")}</p>
+        <h4 className="text-xl">My tasks</h4>
       </div>
     </div>
   );

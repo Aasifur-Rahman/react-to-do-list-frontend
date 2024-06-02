@@ -26,21 +26,10 @@
 
 .search-icon {
   position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease;
+  top: 25%;
+  left: 1%;
 }
 
-@keyframes moveIcon {
-  0% {
-    transform: translate(0);
-  }
-  100% {
-    transform: translateX(100px);
-  }
-}
-
-.search-input:focus + .search-icon {
-  animation: moveIcon 0.5s forwards;
+.search-input {
+  outline: 0;
 }

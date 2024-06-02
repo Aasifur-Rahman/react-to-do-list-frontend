@@ -29,8 +29,12 @@ const Login = () => {
         navigate(location?.state ? location.state : "/mytasks");
       })
       .catch((error) => {
-        console.log(error.message);
-        setError("Invalid password or Emails");
+        console.log(error.code);
+        if (error.code === "auth/invalid-credential") {
+          setError("Check your Email or Password");
+        } else {
+          setError("Failed to log in. Please try again.");
+        }
       });
   };
 
@@ -41,8 +45,8 @@ const Login = () => {
           <div className="mt-16">
             <img className="w-2/6 mx-auto" src={introImg} alt="" />
           </div>
-          <h2 className="text-2xl font-semibold text-indigo-500 text-center mt-5">
-            {"Let's"} get started!
+          <h2 className="text-2xl font-semibold text-sky-900 text-center mt-5">
+            Welcome Back!
           </h2>
         </div>
 
@@ -54,6 +58,7 @@ const Login = () => {
                 className="py-1 px-5 w-full mx-auto  rounded-2xl focus:outline-none  bg-blue-50 dark:focus:bg-slate-700 "
                 type="email"
                 name="email"
+                required
               />
             </div>
 
@@ -64,6 +69,7 @@ const Login = () => {
                   className="py-1 px-5 w-full rounded-2xl focus:outline-none bg-blue-50 dark:focus:bg-slate-700 "
                   type={showPassword ? "text" : "password"}
                   name="password"
+                  required
                 />
               </div>
               <span

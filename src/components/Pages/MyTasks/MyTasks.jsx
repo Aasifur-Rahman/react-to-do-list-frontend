@@ -1,6 +1,5 @@
 import BottomNav from "../../Shared/BottomNav/BottomNav";
 import TopNav from "../../Shared/TopNav/TopNav";
-
 const MyTasks = () => {
   return (
     <div>
