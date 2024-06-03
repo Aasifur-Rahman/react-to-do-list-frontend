@@ -20,12 +20,12 @@ const TopNav = () => {
   };
 
   return (
-    <div className="bg-indigo-400 w-full mx-auto  p-2 lg:p-7  pt-6  pb-2  lg:rounded-b-3xl ">
+    <div className="bg-indigo-400 w-full mx-auto  p-2 lg:p-7  pt-6  pb-2  rounded-b-3xl ">
       <div>
         <div className="flex items-center justify-between  ">
           {/* Dashboard */}
           <div>
-            <Link>
+            <Link to="/dashboard">
               <RxDashboard className="text-lg lg:text-2xl text-white dashboard" />
             </Link>
           </div>
