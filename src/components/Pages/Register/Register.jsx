@@ -45,7 +45,7 @@ const Register = () => {
           alert("Email verification sent to your email ");
         });
 
-        navigate(location?.state ? location.state : "/mytasks");
+        navigate(location?.state ? location.state : "/tasks");
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {

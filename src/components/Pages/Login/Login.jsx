@@ -26,7 +26,7 @@ const Login = () => {
         console.log(result.user);
 
         // navigate user to home page
-        navigate(location?.state ? location.state : "/mytasks");
+        navigate(location?.state ? location.state : "/tasks");
       })
       .catch((error) => {
         console.log(error.code);

@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 
 const Root = () => {
   return (
-    <div>
-      <div className="max-w-screen-sm h-screen  mx-auto">
+    <div className="bg-zinc-100">
+      <div className="max-w-screen-sm h-screen  mx-auto bg-zinc-100">
         <Outlet></Outlet>
       </div>
     </div>

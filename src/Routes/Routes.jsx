@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/mytasks",
+        path: "/tasks",
         element: (
           <PrivateRoute>
             <MyTasks></MyTasks>
