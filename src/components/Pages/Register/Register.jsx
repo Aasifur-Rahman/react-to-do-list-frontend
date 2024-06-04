@@ -87,7 +87,7 @@ const Register = () => {
           <div className="mb-3 w-2/3 ">
             <p className="text-slate-400 mx-2 text-xs mb-1">EMAIL ADDRESS</p>
             <input
-              className="py-1 px-5 w-full mx-auto  rounded-2xl focus:outline-none  bg-blue-50 dark:focus:bg-slate-700 input-sm"
+              className="py-1 px-5 w-full mx-auto  rounded-2xl focus:outline-none  bg-white shadow-md text-black input-sm"
               type="email"
               name="email"
               required
@@ -97,7 +97,7 @@ const Register = () => {
           <div className="w-2/3 ">
             <p className="text-slate-400 mx-2 text-xs mb-1">PASSWORD</p>
             <input
-              className="py-1 px-5 w-full rounded-2xl focus:outline-none input-sm  bg-blue-50 dark:focus:bg-slate-700 "
+              className="py-1 px-5 w-full rounded-2xl focus:outline-none input-sm shadow-md text-black   bg-white "
               type="password"
               name="password"
               required

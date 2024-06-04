@@ -55,7 +55,7 @@ const Login = () => {
             <div className="mb-3 w-2/3 ">
               <p className="text-slate-400 mx-2 text-xs mb-1">EMAIL ADDRESS</p>
               <input
-                className="py-1 px-5 w-full mx-auto  rounded-2xl focus:outline-none  bg-blue-50 dark:focus:bg-slate-700 "
+                className="py-1 px-5 w-full mx-auto  bg-white shadow-md text-black rounded-2xl focus:outline-none    "
                 type="email"
                 name="email"
                 required
@@ -66,7 +66,7 @@ const Login = () => {
               <div>
                 <p className="text-slate-400 mx-2 text-xs mb-1">PASSWORD</p>
                 <input
-                  className="py-1 px-5 w-full rounded-2xl focus:outline-none bg-blue-50 dark:focus:bg-slate-700 "
+                  className="py-1 px-5 w-full  bg-white shadow-md text-black rounded-2xl focus:outline-none   "
                   type={showPassword ? "text" : "password"}
                   name="password"
                   required

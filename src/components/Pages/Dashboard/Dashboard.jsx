@@ -4,7 +4,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import moment from "moment";
 import { FaRegUserCircle } from "react-icons/fa";
 
-import DashBody from "./DashBody";
+import DashBody from "./DashBody/DashBody";
 
 const Dashboard = () => {
   const { logOut } = useContext(AuthContext);
