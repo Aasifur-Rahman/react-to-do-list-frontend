@@ -41,14 +41,14 @@ const BottomNav = () => {
                     </h3>
                     <div>
                       <textarea
-                        className="px-2 py-2 w-full rounded-lg text-sm"
+                        className="px-2 py-2 w-full rounded-lg text-sm outline-none"
                         name=""
                         id=""
                       ></textarea>
                     </div>
 
                     <div className="flex items-center justify-between mt-3">
-                      <div className="flex items-center justify-evenly gap-3">
+                      <div className="flex items-center justify-evenly gap-5">
                         <div>
                           <button className="">
                             <SlCalender className="text-xl text-indigo-500" />
@@ -72,7 +72,7 @@ const BottomNav = () => {
                       </div>
 
                       <button>
-                        <RiUploadCloudFill className="text-xl text-indigo-400" />
+                        <RiUploadCloudFill className="text-2xl text-indigo-400" />
                       </button>
                     </div>
                   </form>
