@@ -7,8 +7,9 @@ import {
   signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import auth from "../Firebase/firebase.config";
+import auth, { app } from "../Firebase/firebase.config";
 import PropTypes from "prop-types";
+import { getDatabase, push, ref, set } from "firebase/database";
 
 export const AuthContext = createContext(null);
 
@@ -45,6 +46,15 @@ const AuthProvider = ({ children }) => {
     // return signOut(auth);
   };
 
+  const saveData = async (inputValue1, inputValue2) => {
+    const db = getDatabase(app);
+    const newDocRef = push(ref(db, "to-do"));
+    set(newDocRef, {
+      title: inputValue1,
+      content: inputValue2,
+    });
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -65,6 +75,7 @@ const AuthProvider = ({ children }) => {
     signInPopUp,
     signInUser,
     logOut,
+    saveData,
   };
 
   return (

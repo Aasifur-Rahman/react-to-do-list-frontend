@@ -23,28 +23,30 @@ const Labels = () => {
           <IoMdAdd className="text-2xl" />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-3">
-        <div className="flex gap-2 bg-white rounded-lg p-5">
-          <BsTag className="text-2xl text-indigo-400" />
-          <p className="text-indigo-400 font-medium">Study</p>
+      {showDrawer && (
+        <div className="grid grid-cols-2 gap-3">
+          <div className="flex gap-2 bg-white rounded-lg p-5">
+            <BsTag className="text-2xl text-indigo-400" />
+            <p className="text-indigo-400 font-medium">Study</p>
+          </div>
+          <div className="flex gap-2 bg-white rounded-lg p-5">
+            <BsTag className="text-2xl text-black" />
+            <p className="text-black font-medium">Sports</p>
+          </div>
+          <div className="flex gap-2 bg-white rounded-lg p-5">
+            <BsTag className="text-2xl text-orange-500" />
+            <p className="text-orange-500 font-medium">Work</p>
+          </div>
+          <div className="flex gap-2 bg-white rounded-lg p-5">
+            <BsTag className="text-2xl text-yellow-400" />
+            <p className="text-yellow-400 font-medium">Personal</p>
+          </div>
+          <div className="flex gap-2 bg-white rounded-lg p-5">
+            <BsTag className="text-2xl text-green-400" />
+            <p className="text-green-400 font-medium">Habit</p>
+          </div>
         </div>
-        <div className="flex gap-2 bg-white rounded-lg p-5">
-          <BsTag className="text-2xl text-black" />
-          <p className="text-black font-medium">Sports</p>
-        </div>
-        <div className="flex gap-2 bg-white rounded-lg p-5">
-          <BsTag className="text-2xl text-orange-500" />
-          <p className="text-orange-500 font-medium">Work</p>
-        </div>
-        <div className="flex gap-2 bg-white rounded-lg p-5">
-          <BsTag className="text-2xl text-yellow-400" />
-          <p className="text-yellow-400 font-medium">Personal</p>
-        </div>
-        <div className="flex gap-2 bg-white rounded-lg p-5">
-          <BsTag className="text-2xl text-green-400" />
-          <p className="text-green-400 font-medium">Habit</p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

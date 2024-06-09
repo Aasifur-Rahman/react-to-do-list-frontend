@@ -8,7 +8,7 @@ import { useState } from "react";
 const Projects = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   return (
-    <div className=" px-2 mt-6 ">
+    <div className="  mt-6 ">
       <div className="flex justify-between items-center">
         <h6 className="font-semibold">Projects</h6>
         <div className="flex gap-4 items-center">

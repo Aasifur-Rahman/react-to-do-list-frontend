@@ -6,8 +6,29 @@ import { BsTag } from "react-icons/bs";
 import { LuListTodo } from "react-icons/lu";
 import { CiWarning } from "react-icons/ci";
 import { RiUploadCloudFill } from "react-icons/ri";
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const BottomNav = () => {
+  const { saveData } = useContext(AuthContext);
+
+  const handleTaskInput = (e) => {
+    e.preventDefault();
+
+    const input1 = e.target.title.value;
+    const input2 = e.target.content.value;
+
+    console.log(input1, input2);
+
+    saveData(input1, input2)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className=" fixed bottom-0 left-0 w-full h-15 dark:bg-base-200 ">
       <ul className="  bg-base-200   flex justify-around items-center">
@@ -35,14 +56,21 @@ const BottomNav = () => {
                     </button>
                   </form>
 
-                  <form>
+                  <form onSubmit={handleTaskInput}>
                     <h3 className="font-bold text-lg mb-3 ">
                       What would you like to do?
                     </h3>
                     <div>
+                      <input
+                        className="px-2 py-2 w-full rounded-lg text-md outline-none"
+                        type="text"
+                        placeholder="Title"
+                        required
+                        name="title"
+                      />
                       <textarea
                         className="px-2 py-2 w-full rounded-lg text-sm outline-none"
-                        name=""
+                        name="content"
                         id=""
                       ></textarea>
                     </div>
