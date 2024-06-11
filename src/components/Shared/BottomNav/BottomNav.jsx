@@ -5,28 +5,29 @@ import { SlCalender } from "react-icons/sl";
 import { BsTag } from "react-icons/bs";
 import { LuListTodo } from "react-icons/lu";
 import { CiWarning } from "react-icons/ci";
-import { RiUploadCloudFill } from "react-icons/ri";
-import { useContext } from "react";
-import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { IoEnterOutline } from "react-icons/io5";
+import Datepicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useContext, useState } from "react";
+import { TodoContext } from "../../../providers/TodoProvider";
 
 const BottomNav = () => {
-  const { saveData } = useContext(AuthContext);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const [priority, setPriority] = useState(false);
+
+  const { addTodo } = useContext(TodoContext);
 
   const handleTaskInput = (e) => {
     e.preventDefault();
 
     const input1 = e.target.title.value;
     const input2 = e.target.content.value;
+    const start = e.target.startDate.value;
+    const end = e.target.endDate.value;
+    console.log(input1, input2, start, end);
 
-    console.log(input1, input2);
-
-    saveData(input1, input2)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    addTodo(input1, input2, start, end, priority);
   };
 
   return (
@@ -62,29 +63,62 @@ const BottomNav = () => {
                     </h3>
                     <div>
                       <input
-                        className="px-2 py-2 w-full rounded-lg text-md outline-none"
+                        className="px-2 py-2 w-full rounded-lg text-md outline-none dark:bg-base-100"
                         type="text"
                         placeholder="Title"
                         required
                         name="title"
                       />
-                      <textarea
-                        className="px-2 py-2 w-full rounded-lg text-sm outline-none"
-                        name="content"
-                        id=""
-                      ></textarea>
+                      <div className="relative">
+                        <textarea
+                          className="px-2 py-2 mt-3 w-full rounded-lg text-sm outline-none dark:bg-base-100 h-52 overflow-hidden"
+                          name="content"
+                          id=""
+                          placeholder="Description"
+                        ></textarea>
+                      </div>
+                      {/* date picker */}
+                      <div className="lg:flex md:flex  items-center">
+                        <div>
+                          <Datepicker
+                            className="dark:bg-base-100 px-5 dark:text-white outline-none "
+                            selectsStart
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            startDate={startDate}
+                            placeholderText="Starting Date"
+                            name="startDate"
+                          />
+                        </div>
+
+                        <div>
+                          <Datepicker
+                            className=" px-5 dark:text-white dark:bg-base-100 outline-none "
+                            selectsEnd
+                            selected={endDate}
+                            onChange={(date) => setEndDate(date)}
+                            endDate={endDate}
+                            startDate={startDate}
+                            minDate={startDate}
+                            placeholderText="Ending Date"
+                            name="endDate"
+                          />
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="flex items-center justify-between mt-3">
+                    {/* label priority todo */}
+                    <div className="flex items-center justify-between mt-5">
                       <div className="flex items-center justify-evenly gap-5">
                         <div>
-                          <button className="">
-                            <SlCalender className="text-xl text-indigo-500" />
-                          </button>
-                        </div>
-                        <div>
-                          <button>
-                            <CiWarning className="text-xl text-indigo-400" />
+                          <button onClick={() => setPriority(!priority)}>
+                            <CiWarning
+                              className={
+                                priority
+                                  ? "text-xl text-red-500"
+                                  : "text-xl text-indigo-400  "
+                              }
+                            />
                           </button>
                         </div>
                         <div>
@@ -100,7 +134,7 @@ const BottomNav = () => {
                       </div>
 
                       <button>
-                        <RiUploadCloudFill className="text-2xl text-indigo-400" />
+                        <IoEnterOutline className="text-2xl text-indigo-400" />
                       </button>
                     </div>
                   </form>
