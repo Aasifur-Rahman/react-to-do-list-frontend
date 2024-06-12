@@ -5,7 +5,7 @@ import Status from "./Status";
 
 const DashBody = () => {
   return (
-    <div className="font-poppins ">
+    <div className="font-poppins p-5 ">
       <div>
         <Workflow></Workflow>
 

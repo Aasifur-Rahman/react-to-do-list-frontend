@@ -31,10 +31,10 @@ const BottomNav = () => {
   };
 
   return (
-    <div className=" fixed bottom-0 left-0 w-full h-15 dark:bg-base-200 ">
+    <div className=" fixed  bottom-0 left-0 w-full h-15 dark:bg-base-100 ">
       <ul className="  bg-base-200   flex justify-around items-center">
         <li className="">
-          <Link to="/">
+          <Link to="/tasks">
             <IoHome className="text-xl mt-1 text-gray-400 hover:text-indigo-500 " />
           </Link>
         </li>
@@ -81,19 +81,20 @@ const BottomNav = () => {
                       <div className="lg:flex md:flex  items-center">
                         <div>
                           <Datepicker
-                            className="dark:bg-base-100 px-5 dark:text-white outline-none "
+                            className="dark:bg-base-100 px-2 dark:text-white outline-none "
                             selectsStart
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
                             startDate={startDate}
                             placeholderText="Starting Date"
                             name="startDate"
+                            dateFormat={"dd MMM yy"}
                           />
                         </div>
 
                         <div>
                           <Datepicker
-                            className=" px-5 dark:text-white dark:bg-base-100 outline-none "
+                            className=" px-2 dark:text-white dark:bg-base-100 outline-none "
                             selectsEnd
                             selected={endDate}
                             onChange={(date) => setEndDate(date)}
@@ -102,6 +103,7 @@ const BottomNav = () => {
                             minDate={startDate}
                             placeholderText="Ending Date"
                             name="endDate"
+                            dateFormat={"dd MMM yy"}
                           />
                         </div>
                       </div>
@@ -111,7 +113,7 @@ const BottomNav = () => {
                     <div className="flex items-center justify-between mt-5">
                       <div className="flex items-center justify-evenly gap-5">
                         <div>
-                          <button onClick={() => setPriority(!priority)}>
+                          <div onClick={() => setPriority(!priority)}>
                             <CiWarning
                               className={
                                 priority
@@ -119,7 +121,7 @@ const BottomNav = () => {
                                   : "text-xl text-indigo-400  "
                               }
                             />
-                          </button>
+                          </div>
                         </div>
                         <div>
                           <button>
